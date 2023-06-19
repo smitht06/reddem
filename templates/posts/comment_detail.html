@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Comment</h1>
+  <p>{{ comment.message }}</p>
+  
+  <h2>Replies</h2>
+  <ul>
+    {% for reply in replies %}
+      <li>
+        <p>{{ reply.message }}</p>
+      </li>
+    {% empty %}
+      <li>No replies available.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}
