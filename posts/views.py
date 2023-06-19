@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import ListView, CreateView
 from .models import Post, Comment, Reply
+from django.urls import reverse_lazy
 
 # Create your views here.
 
@@ -38,6 +39,9 @@ class PostCreateView(CreateView):
     model = Post
     template_name = "posts/post_create.html"
     fields = ["title", "content"]
+
+    def get_success_url(self):
+        return reverse_lazy('post_list')
 
     def form_valid(self, form):
         form.instance.user = self.request.user

@@ -22,7 +22,6 @@ from .views import (
     ReplyDownvoteView,
 )
 
-app_name = "posts"
 
 urlpatterns = [
     path("", PostListView.as_view(), name="post_list"),
